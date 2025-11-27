@@ -21,8 +21,8 @@ jobs:
 
       - name: Load CloudFormation outputs
         run: |
-          echo "BUCKET=$(aws cloudformation describe-stacks --stack-name frontend-stack --query "Stacks[0].Outputs[?OutputKey=='BucketName'].OutputValue" --output text)" >> $GITHUB_ENV
-          echo "DIST=$(aws cloudformation describe-stacks --stack-name frontend-stack --query "Stacks[0].Outputs[?OutputKey=='CloudFrontId'].OutputValue" --output text)" >> $GITHUB_ENV
+          echo "BUCKET=$(aws cloudformation describe-stacks --stack-name simple-frontend-stack --query "Stacks[0].Outputs[?OutputKey=='BucketName'].OutputValue" --output text)" >> $GITHUB_ENV
+          echo "DIST=$(aws cloudformation describe-stacks --stack-name simple-frontend-stack --query "Stacks[0].Outputs[?OutputKey=='CloudFrontId'].OutputValue" --output text)" >> $GITHUB_ENV
 
       - name: Upload files to S3
         run: |
